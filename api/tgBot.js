@@ -1,6 +1,7 @@
 import { Telegraf } from 'telegraf';
 import pg from 'pg';
 import cron from 'node-cron';
+import express from 'express';
 
 const { Pool } = pg;
 
@@ -290,7 +291,7 @@ const app = express();
 
 bot.start((ctx) => ctx.reply('Привет! Я бот на Vercel.'));
 
-bot.telegram.setWebhook('https://your-vercel-deployment-url/api/bot');
+bot.telegram.setWebhook('https://tg-ms4n0dse9-zaharoids-projects.vercel.app');
 app.use(bot.webhookCallback('/api/tgBot'));
 
 app.get('/', (req, res) => {
@@ -303,3 +304,5 @@ bot.launch().then(() => {
 }).catch((err) => {
   console.error('err:', err);
 });
+
+export default app;
