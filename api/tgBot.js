@@ -286,6 +286,18 @@ bot.on('message', (ctx) => {
   ctx.reply('Не знаю такой комманды...');
 });
 
+const app = express();
+
+bot.start((ctx) => ctx.reply('Привет! Я бот на Vercel.'));
+
+bot.telegram.setWebhook('https://your-vercel-deployment-url/api/bot');
+app.use(bot.webhookCallback('/api/tgBot'));
+
+app.get('/', (req, res) => {
+  res.send('Этот бот работает на Vercel!');
+});
+
+
 bot.launch().then(() => {
   console.log('Запустился');
 }).catch((err) => {
