@@ -291,7 +291,7 @@ const app = express();
 
 bot.start((ctx) => ctx.reply('Привет! Я бот на Vercel.'));
 
-bot.telegram.setWebhook('https://tg-ms4n0dse9-zaharoids-projects.vercel.app');
+bot.telegram.setWebhook('https://tg-bx6mrb4is-zaharoids-projects.vercel.app/');
 app.use(bot.webhookCallback('/api/tgBot'));
 
 app.get('/', (req, res) => {
